@@ -10,15 +10,7 @@
       <parameter name="className" value="action.Action"/>
       <parameter name="wsdlPortType" value="Action"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation xmlns:operNS="http://action" name="modifyAnnonce" qname="operNS:modifyAnnonce" soapAction="">
-        <parameter xmlns:pns="http://action" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:categorie" type="tns:string"/>
-        <parameter xmlns:pns="http://action" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nom" type="tns:string"/>
-        <parameter xmlns:pns="http://action" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:rue" type="tns:string"/>
-        <parameter xmlns:pns="http://action" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ville" type="tns:string"/>
-        <parameter xmlns:pns="http://action" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:postal" type="tns:string"/>
-        <parameter xmlns:pns="http://action" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:tele" type="tns:string"/>
-        <parameter xmlns:pns="http://action" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:text" type="tns:string"/>
-        <parameter xmlns:pns="http://action" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id_annonce" type="tns:int"/>
+      <operation xmlns:operNS="http://action" xmlns:retNS="http://action" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="test" qname="operNS:test" returnQName="retNS:testReturn" returnType="rtns:string" soapAction="">
       </operation>
       <operation xmlns:operNS="http://action" name="newAnnonce" qname="operNS:newAnnonce" soapAction="">
         <parameter xmlns:pns="http://action" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:categorie" type="tns:string"/>
@@ -29,7 +21,17 @@
         <parameter xmlns:pns="http://action" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:tele" type="tns:string"/>
         <parameter xmlns:pns="http://action" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:text" type="tns:string"/>
       </operation>
-      <parameter name="allowedMethods" value="newAnnonce modifyAnnonce"/>
+      <operation xmlns:operNS="http://action" name="modifyAnnonce" qname="operNS:modifyAnnonce" soapAction="">
+        <parameter xmlns:pns="http://action" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:categorie" type="tns:string"/>
+        <parameter xmlns:pns="http://action" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nom" type="tns:string"/>
+        <parameter xmlns:pns="http://action" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:rue" type="tns:string"/>
+        <parameter xmlns:pns="http://action" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ville" type="tns:string"/>
+        <parameter xmlns:pns="http://action" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:postal" type="tns:string"/>
+        <parameter xmlns:pns="http://action" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:tele" type="tns:string"/>
+        <parameter xmlns:pns="http://action" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:text" type="tns:string"/>
+        <parameter xmlns:pns="http://action" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id_annonce" type="tns:int"/>
+      </operation>
+      <parameter name="allowedMethods" value="test newAnnonce modifyAnnonce"/>
 
   </service>
 </deployment>
