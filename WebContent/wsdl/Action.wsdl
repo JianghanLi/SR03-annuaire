@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://action" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://action" xmlns:intf="http://action" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://action" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="modifyAnnonce">
+    <complexType>
+     <sequence>
+      <element name="categorie" type="xsd:string"/>
+      <element name="nom" type="xsd:string"/>
+      <element name="rue" type="xsd:string"/>
+      <element name="ville" type="xsd:string"/>
+      <element name="postal" type="xsd:string"/>
+      <element name="tele" type="xsd:string"/>
+      <element name="text" type="xsd:string"/>
+      <element name="id_annonce" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="modifyAnnonceResponse">
+    <complexType/>
+   </element>
+   <element name="newAnnonce">
+    <complexType>
+     <sequence>
+      <element name="categorie" type="xsd:string"/>
+      <element name="nom" type="xsd:string"/>
+      <element name="rue" type="xsd:string"/>
+      <element name="ville" type="xsd:string"/>
+      <element name="postal" type="xsd:string"/>
+      <element name="tele" type="xsd:string"/>
+      <element name="text" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="newAnnonceResponse">
+    <complexType/>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="modifyAnnonceRequest">
+
+      <wsdl:part element="impl:modifyAnnonce" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="newAnnonceResponse">
+
+      <wsdl:part element="impl:newAnnonceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="modifyAnnonceResponse">
+
+      <wsdl:part element="impl:modifyAnnonceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="newAnnonceRequest">
+
+      <wsdl:part element="impl:newAnnonce" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Action">
+
+      <wsdl:operation name="modifyAnnonce">
+
+         <wsdl:input message="impl:modifyAnnonceRequest" name="modifyAnnonceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:modifyAnnonceResponse" name="modifyAnnonceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="newAnnonce">
+
+         <wsdl:input message="impl:newAnnonceRequest" name="newAnnonceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:newAnnonceResponse" name="newAnnonceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ActionSoapBinding" type="impl:Action">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="modifyAnnonce">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="modifyAnnonceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="modifyAnnonceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="newAnnonce">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="newAnnonceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="newAnnonceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ActionService">
+
+      <wsdl:port binding="impl:ActionSoapBinding" name="Action">
+
+         <wsdlsoap:address location="http://localhost:8080/exercise1/services/Action"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

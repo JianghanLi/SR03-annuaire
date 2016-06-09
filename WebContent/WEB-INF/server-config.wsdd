@@ -7,8 +7,8 @@
   <ns1:parameter name="dotNetSoapEncFix" value="true"/>
   <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
   <ns1:parameter name="sendXMLDeclaration" value="true"/>
-  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
   <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
   <ns1:requestFlow>
    <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
     <ns1:parameter name="scope" value="session"/>
@@ -22,6 +22,35 @@
  <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
  <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
  <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <ns1:service name="Action" provider="java:RPC" style="wrapped" use="literal">
+  <ns2:operation name="modifyAnnonce" qname="ns1:modifyAnnonce" soapAction="" xmlns:ns1="http://action" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:categorie" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns2:parameter qname="ns1:nom" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns2:parameter qname="ns1:rue" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns2:parameter qname="ns1:ville" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns2:parameter qname="ns1:postal" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns2:parameter qname="ns1:tele" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns2:parameter qname="ns1:text" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns2:parameter qname="ns1:id_annonce" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns2:operation>
+  <ns1:operation name="newAnnonce" qname="ns2:newAnnonce" soapAction="" xmlns:ns2="http://action">
+   <ns1:parameter qname="ns2:categorie" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns2:nom" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns2:rue" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns2:ville" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns2:postal" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns2:tele" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns2:text" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="newAnnonce modifyAnnonce"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="Action"/>
+  <ns1:parameter name="className" value="action.Action"/>
+  <ns1:parameter name="wsdlServicePort" value="Action"/>
+  <ns1:parameter name="schemaQualified" value="http://action"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://action"/>
+  <ns1:parameter name="wsdlServiceElement" value="ActionService"/>
+ </ns1:service>
  <ns1:service name="AdminService" provider="java:MSG">
   <ns1:parameter name="allowedMethods" value="AdminService"/>
   <ns1:parameter name="enableRemoteAdmin" value="false"/>
@@ -33,24 +62,24 @@
   <ns1:parameter name="className" value="org.apache.axis.Version"/>
  </ns1:service>
  <ns1:service name="Calculette" provider="java:RPC" style="wrapped" use="literal">
-  <ns2:operation name="mul" qname="ns1:mul" returnQName="ns1:mulReturn" returnType="xsd:int" soapAction="" xmlns:ns1="http://exercise1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
-   <ns2:parameter qname="ns1:val1" type="xsd:int"/>
-   <ns2:parameter qname="ns1:val2" type="xsd:int"/>
-  </ns2:operation>
-  <ns1:operation name="add" qname="ns2:add" returnQName="ns2:addReturn" returnType="xsd:int" soapAction="" xmlns:ns2="http://exercise1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns2:val1" type="xsd:int"/>
-   <ns1:parameter qname="ns2:val2" type="xsd:int"/>
-  </ns1:operation>
-  <ns1:operation name="sou" qname="ns3:sou" returnQName="ns3:souReturn" returnType="xsd:int" soapAction="" xmlns:ns3="http://exercise1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ns1:operation name="mul" qname="ns3:mul" returnQName="ns3:mulReturn" returnType="xsd:int" soapAction="" xmlns:ns3="http://exercise1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <ns1:parameter qname="ns3:val1" type="xsd:int"/>
    <ns1:parameter qname="ns3:val2" type="xsd:int"/>
   </ns1:operation>
+  <ns1:operation name="add" qname="ns4:add" returnQName="ns4:addReturn" returnType="xsd:int" soapAction="" xmlns:ns4="http://exercise1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns4:val1" type="xsd:int"/>
+   <ns1:parameter qname="ns4:val2" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="sou" qname="ns5:sou" returnQName="ns5:souReturn" returnType="xsd:int" soapAction="" xmlns:ns5="http://exercise1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns5:val1" type="xsd:int"/>
+   <ns1:parameter qname="ns5:val2" type="xsd:int"/>
+  </ns1:operation>
   <ns1:parameter name="allowedMethods" value="add mul sou"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="Calculette"/>
-  <ns1:parameter name="className" value="exercise1.Calculette"/>
-  <ns1:parameter name="wsdlServicePort" value="Calculette"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="schemaQualified" value="http://exercise1"/>
+  <ns1:parameter name="wsdlServicePort" value="Calculette"/>
+  <ns1:parameter name="className" value="exercise1.Calculette"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://exercise1"/>
   <ns1:parameter name="wsdlServiceElement" value="CalculetteService"/>
  </ns1:service>
