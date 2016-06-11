@@ -97,7 +97,26 @@ public class Action {
 		}
 		db.close();
 	}
+	
+	public void modifyCategorie(String categorie, String newCategorie) {
+		if(checkCategorie(categorie) && !checkCategorie(newCategorie)) {
+			DBConnecter db = new DBConnecter();
+			Connection con = db.getConnection();
+			try {
+				String sql = "update categorie set title=? where title=?";
+				PreparedStatement prest = con.prepareStatement(sql);
+				prest.setString(1, newCategorie);
+				prest.setString(2, categorie);
+				prest.executeUpdate();	
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			db.close();	
+		}
+	}
 
+	// delete enable only if there is no annonce in this categorie
 	public void deleteCategorie(String categorie) {
 		if(checkCategorie(categorie) && !hasAnnonce(categorie)) {
 			DBConnecter db = new DBConnecter();
