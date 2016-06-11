@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://action" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://action" xmlns:intf="http://action" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://action" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="test">
+    <complexType/>
+   </element>
+   <element name="testResponse">
+    <complexType>
+     <sequence>
+      <element name="testReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByCategorie">
+    <complexType>
+     <sequence>
+      <element name="categorie" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByCategorieResponse">
+    <complexType>
+     <sequence>
+      <element name="searchByCategorieReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="newAnnonce">
+    <complexType>
+     <sequence>
+      <element name="categorie" type="xsd:string"/>
+      <element name="nom" type="xsd:string"/>
+      <element name="rue" type="xsd:string"/>
+      <element name="ville" type="xsd:string"/>
+      <element name="postal" type="xsd:string"/>
+      <element name="tele" type="xsd:string"/>
+      <element name="text" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="newAnnonceResponse">
+    <complexType/>
+   </element>
+   <element name="modifyAnnonce">
+    <complexType>
+     <sequence>
+      <element name="categorie" type="xsd:string"/>
+      <element name="nom" type="xsd:string"/>
+      <element name="rue" type="xsd:string"/>
+      <element name="ville" type="xsd:string"/>
+      <element name="postal" type="xsd:string"/>
+      <element name="tele" type="xsd:string"/>
+      <element name="text" type="xsd:string"/>
+      <element name="id_annonce" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="modifyAnnonceResponse">
+    <complexType/>
+   </element>
+   <element name="deleteAnnonce">
+    <complexType>
+     <sequence>
+      <element name="id_annonce" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteAnnonceResponse">
+    <complexType/>
+   </element>
+   <element name="newCategorie">
+    <complexType>
+     <sequence>
+      <element name="categorie" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="newCategorieResponse">
+    <complexType/>
+   </element>
+   <element name="modifyCategorie">
+    <complexType>
+     <sequence>
+      <element name="categorie" type="xsd:string"/>
+      <element name="newCategorie" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="modifyCategorieResponse">
+    <complexType/>
+   </element>
+   <element name="deleteCategorie">
+    <complexType>
+     <sequence>
+      <element name="categorie" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteCategorieResponse">
+    <complexType/>
+   </element>
+   <element name="searchByCodepostal">
+    <complexType>
+     <sequence>
+      <element name="codePostal" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByCodepostalResponse">
+    <complexType>
+     <sequence>
+      <element name="searchByCodepostalReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByNom">
+    <complexType>
+     <sequence>
+      <element name="nom" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByNomResponse">
+    <complexType>
+     <sequence>
+      <element name="searchByNomReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="modifyCategorieResponse">
+
+      <wsdl:part element="impl:modifyCategorieResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByNomRequest">
+
+      <wsdl:part element="impl:searchByNom" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="modifyAnnonceRequest">
+
+      <wsdl:part element="impl:modifyAnnonce" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByCategorieResponse">
+
+      <wsdl:part element="impl:searchByCategorieResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="newAnnonceRequest">
+
+      <wsdl:part element="impl:newAnnonce" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="modifyAnnonceResponse">
+
+      <wsdl:part element="impl:modifyAnnonceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteAnnonceRequest">
+
+      <wsdl:part element="impl:deleteAnnonce" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByCodepostalRequest">
+
+      <wsdl:part element="impl:searchByCodepostal" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="testRequest">
+
+      <wsdl:part element="impl:test" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByNomResponse">
+
+      <wsdl:part element="impl:searchByNomResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="newAnnonceResponse">
+
+      <wsdl:part element="impl:newAnnonceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="testResponse">
+
+      <wsdl:part element="impl:testResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteAnnonceResponse">
+
+      <wsdl:part element="impl:deleteAnnonceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="newCategorieResponse">
+
+      <wsdl:part element="impl:newCategorieResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="newCategorieRequest">
+
+      <wsdl:part element="impl:newCategorie" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByCodepostalResponse">
+
+      <wsdl:part element="impl:searchByCodepostalResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="modifyCategorieRequest">
+
+      <wsdl:part element="impl:modifyCategorie" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByCategorieRequest">
+
+      <wsdl:part element="impl:searchByCategorie" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteCategorieResponse">
+
+      <wsdl:part element="impl:deleteCategorieResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteCategorieRequest">
+
+      <wsdl:part element="impl:deleteCategorie" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Action">
+
+      <wsdl:operation name="test">
+
+         <wsdl:input message="impl:testRequest" name="testRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:testResponse" name="testResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByCategorie">
+
+         <wsdl:input message="impl:searchByCategorieRequest" name="searchByCategorieRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:searchByCategorieResponse" name="searchByCategorieResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="newAnnonce">
+
+         <wsdl:input message="impl:newAnnonceRequest" name="newAnnonceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:newAnnonceResponse" name="newAnnonceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="modifyAnnonce">
+
+         <wsdl:input message="impl:modifyAnnonceRequest" name="modifyAnnonceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:modifyAnnonceResponse" name="modifyAnnonceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteAnnonce">
+
+         <wsdl:input message="impl:deleteAnnonceRequest" name="deleteAnnonceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteAnnonceResponse" name="deleteAnnonceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="newCategorie">
+
+         <wsdl:input message="impl:newCategorieRequest" name="newCategorieRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:newCategorieResponse" name="newCategorieResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="modifyCategorie">
+
+         <wsdl:input message="impl:modifyCategorieRequest" name="modifyCategorieRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:modifyCategorieResponse" name="modifyCategorieResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteCategorie">
+
+         <wsdl:input message="impl:deleteCategorieRequest" name="deleteCategorieRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteCategorieResponse" name="deleteCategorieResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByCodepostal">
+
+         <wsdl:input message="impl:searchByCodepostalRequest" name="searchByCodepostalRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:searchByCodepostalResponse" name="searchByCodepostalResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByNom">
+
+         <wsdl:input message="impl:searchByNomRequest" name="searchByNomRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:searchByNomResponse" name="searchByNomResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ActionSoapBinding" type="impl:Action">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="test">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="testRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="testResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByCategorie">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchByCategorieRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchByCategorieResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="newAnnonce">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="newAnnonceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="newAnnonceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="modifyAnnonce">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="modifyAnnonceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="modifyAnnonceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteAnnonce">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteAnnonceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteAnnonceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="newCategorie">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="newCategorieRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="newCategorieResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="modifyCategorie">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="modifyCategorieRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="modifyCategorieResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteCategorie">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteCategorieRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteCategorieResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByCodepostal">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchByCodepostalRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchByCodepostalResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByNom">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchByNomRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchByNomResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ActionService">
+
+      <wsdl:port binding="impl:ActionSoapBinding" name="Action">
+
+         <wsdlsoap:address location="http://localhost:8080/SR03-annulaire/services/Action"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

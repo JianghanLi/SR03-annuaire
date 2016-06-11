@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
+import action.ActionProxy;
+import java.rmi.RemoteException;
+
+
+
 /**
  * Servlet implementation class Categorie
  */
@@ -30,8 +35,12 @@ public class Categorie extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String query = (String)request.getParameter("query");
 		System.out.println(query);
-		//ActionProxy actionProxy = new ActionProxy();
-		//actionProxy.newCategorie(query);
+		ActionProxy actionProxy = new ActionProxy();
+		try {
+			actionProxy.newCategorie(query);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		response.sendRedirect("/SR03-annulaire/index.jsp");
 	}
 
