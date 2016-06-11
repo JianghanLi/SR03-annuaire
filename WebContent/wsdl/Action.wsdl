@@ -88,6 +88,48 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <element name="newAnnonceResponse">
     <complexType/>
    </element>
+   <element name="searchByCategorie">
+    <complexType>
+     <sequence>
+      <element name="categorie" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByCategorieResponse">
+    <complexType>
+     <sequence>
+      <element name="searchByCategorieReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByNom">
+    <complexType>
+     <sequence>
+      <element name="nom" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByNomResponse">
+    <complexType>
+     <sequence>
+      <element name="searchByNomReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByCodepostal">
+    <complexType>
+     <sequence>
+      <element name="codePostal" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByCodepostalResponse">
+    <complexType>
+     <sequence>
+      <element name="searchByCodepostalReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
   </schema>
  </wsdl:types>
 
@@ -99,9 +141,25 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
+   <wsdl:message name="searchByNomRequest">
+
+      <wsdl:part element="impl:searchByNom" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
    <wsdl:message name="modifyAnnonceRequest">
 
       <wsdl:part element="impl:modifyAnnonce" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByCategorieResponse">
+
+      <wsdl:part element="impl:searchByCategorieResponse" name="parameters">
 
       </wsdl:part>
 
@@ -131,9 +189,25 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
+   <wsdl:message name="searchByCodepostalRequest">
+
+      <wsdl:part element="impl:searchByCodepostal" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
    <wsdl:message name="testRequest">
 
       <wsdl:part element="impl:test" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByNomResponse">
+
+      <wsdl:part element="impl:searchByNomResponse" name="parameters">
 
       </wsdl:part>
 
@@ -179,6 +253,14 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
+   <wsdl:message name="searchByCodepostalResponse">
+
+      <wsdl:part element="impl:searchByCodepostalResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
    <wsdl:message name="modifyCategorieRequest">
 
       <wsdl:part element="impl:modifyCategorie" name="parameters">
@@ -190,6 +272,14 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <wsdl:message name="deleteCategorieResponse">
 
       <wsdl:part element="impl:deleteCategorieResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByCategorieRequest">
+
+      <wsdl:part element="impl:searchByCategorie" name="parameters">
 
       </wsdl:part>
 
@@ -284,6 +374,42 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
        </wsdl:input>
 
          <wsdl:output message="impl:newAnnonceResponse" name="newAnnonceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByCategorie">
+
+         <wsdl:input message="impl:searchByCategorieRequest" name="searchByCategorieRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:searchByCategorieResponse" name="searchByCategorieResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByNom">
+
+         <wsdl:input message="impl:searchByNomRequest" name="searchByNomRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:searchByNomResponse" name="searchByNomResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByCodepostal">
+
+         <wsdl:input message="impl:searchByCodepostalRequest" name="searchByCodepostalRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:searchByCodepostalResponse" name="searchByCodepostalResponse">
 
        </wsdl:output>
 
@@ -414,6 +540,60 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="newAnnonceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByCategorie">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchByCategorieRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchByCategorieResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByNom">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchByNomRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchByNomResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByCodepostal">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchByCodepostalRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchByCodepostalResponse">
 
             <wsdlsoap:body use="literal"/>
 

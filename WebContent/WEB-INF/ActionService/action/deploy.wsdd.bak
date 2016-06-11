@@ -54,7 +54,16 @@
         <parameter qname="pns:tele" xmlns:pns="http://action" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:text" xmlns:pns="http://action" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
-      <parameter name="allowedMethods" value="modifyCategorie test newAnnonce deleteCategorie deleteAnnonce modifyAnnonce newCategorie"/>
+      <operation name="searchByCategorie" qname="operNS:searchByCategorie" xmlns:operNS="http://action" returnQName="retNS:searchByCategorieReturn" xmlns:retNS="http://action" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:categorie" xmlns:pns="http://action" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="searchByNom" qname="operNS:searchByNom" xmlns:operNS="http://action" returnQName="retNS:searchByNomReturn" xmlns:retNS="http://action" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:nom" xmlns:pns="http://action" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="searchByCodepostal" qname="operNS:searchByCodepostal" xmlns:operNS="http://action" returnQName="retNS:searchByCodepostalReturn" xmlns:retNS="http://action" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:codePostal" xmlns:pns="http://action" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="modifyCategorie test newAnnonce searchByCategorie deleteCategorie deleteAnnonce searchByNom searchByCodepostal modifyAnnonce newCategorie"/>
 
   </service>
 </deployment>

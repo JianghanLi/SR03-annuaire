@@ -5,11 +5,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
+import com.alibaba.fastjson.JSONObject;
+
+import model.Annonce;
 import tool.DBConnecter;
 
 public class Action {
-	
+
 	public void newAnnonce(String categorie, String nom, String rue, String ville,
 		String postal, String tele, String text) {
 
@@ -21,7 +28,7 @@ public class Action {
 			try {
 				PreparedStatement prest = con.prepareStatement(sql);
 				prest.setString(1, categorie);
-				prest.setString(2, nom);
+				prest.setString(2, nom.toUpperCase());
 				prest.setString(3, rue);
 				prest.setString(4, ville);
 				prest.setString(5, postal);
@@ -35,7 +42,7 @@ public class Action {
 			db.close();	
 		}
 	}
-	
+
 	public void modifyAnnonce(String categorie, String nom, String rue, String ville,
 		String postal, String tele, String text, int id_annonce){
 
@@ -48,7 +55,7 @@ public class Action {
 			try {
 				PreparedStatement prest = con.prepareStatement(sql);
 				prest.setString(1, categorie);
-				prest.setString(2, nom);
+				prest.setString(2, nom.toUpperCase());
 				prest.setString(3, rue);
 				prest.setString(4, ville);
 				prest.setString(5, postal);
@@ -63,7 +70,7 @@ public class Action {
 			db.close();	
 		}
 	}
-	
+
 	public void deleteAnnonce(int id_annonce) {
 		if(checkAnnonce(id_annonce)) {
 			DBConnecter db = new DBConnecter();
@@ -80,7 +87,7 @@ public class Action {
 			db.close();	
 		}
 	}
-	
+
 	public void newCategorie(String categorie) {
 		DBConnecter db = new DBConnecter();
 		Connection con = db.getConnection();
@@ -97,7 +104,7 @@ public class Action {
 		}
 		db.close();
 	}
-	
+
 	public void modifyCategorie(String categorie, String newCategorie) {
 		if(checkCategorie(categorie) && !checkCategorie(newCategorie)) {
 			DBConnecter db = new DBConnecter();
@@ -134,10 +141,51 @@ public class Action {
 		}
 	}
 
+	public String searchByCategorie(String categorie) {
+		String sql = "select * from annonce where categorie = '" + categorie +"'";
+		return search(sql);
+	}
+	
+	public String searchByCodepostal(String codePostal) {
+		String sql = "select * from annonce where code_postale = '" + codePostal +"'";
+		return search(sql);
+	}
+	
+	public String searchByNom(String nom) {
+		String sql = "select * from annonce where nom like '%" + nom.toUpperCase() +"%'";
+		return search(sql);
+	}
+	
+	private String search(String sql) {
+		DBConnecter db = new DBConnecter();
+		Statement st = db.getStatement();
+		List annonces = new ArrayList<>();
+		try {
+			ResultSet r = st.executeQuery(sql);
+			while(r.next()) {
+				Map annonce = new LinkedHashMap();
+				annonce.put("categorie", r.getString("categorie"));
+				annonce.put("code_postal", r.getString("code_postale"));
+				annonce.put("id_annonce", r.getString("id_annonce"));
+				annonce.put("nom", r.getString("nom"));
+				annonce.put("rue", r.getString("rue"));
+				annonce.put("telephone", r.getString("telephone"));
+				annonce.put("text", r.getString("text"));
+				annonce.put("ville", r.getString("ville"));
+				annonces.add(annonce);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		db.close();
+		return JSONObject.toJSONString(annonces);
+	}
+
 	private Boolean checkPostTel(String codePostal, String tel){
 		return true;
 	}
-	
+
 	private Boolean hasAnnonce(String categorie) {
 		DBConnecter db = new DBConnecter();
 		Statement st = db.getStatement();
@@ -154,7 +202,7 @@ public class Action {
 		db.close();
 		return false;
 	}
-	
+
 	private Boolean checkCategorie(String categorie){
 		DBConnecter db = new DBConnecter();
 		Statement st = db.getStatement();
@@ -174,7 +222,7 @@ public class Action {
 		db.close();
 		return false;
 	}
-	
+
 	private Boolean checkAnnonce(int id_annonce){
 		DBConnecter db = new DBConnecter();
 		Statement st = db.getStatement();
@@ -194,7 +242,7 @@ public class Action {
 		db.close();
 		return false;
 	}
-	
+
 	public String test(){
 		DBConnecter db = new DBConnecter();
 		Statement st = db.getStatement();
