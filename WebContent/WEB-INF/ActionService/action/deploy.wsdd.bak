@@ -65,9 +65,12 @@
       <operation name="searchByNom" qname="operNS:searchByNom" xmlns:operNS="http://action" returnQName="retNS:searchByNomReturn" xmlns:retNS="http://action" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:nom" xmlns:pns="http://action" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
+      <operation name="searchById" qname="operNS:searchById" xmlns:operNS="http://action" returnQName="retNS:searchByIdReturn" xmlns:retNS="http://action" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id_annonce" xmlns:pns="http://action" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
       <operation name="searchAll" qname="operNS:searchAll" xmlns:operNS="http://action" returnQName="retNS:searchAllReturn" xmlns:retNS="http://action" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
       </operation>
-      <parameter name="allowedMethods" value="getGategorie modifyCategorie test newAnnonce searchByCategorie searchAll deleteAnnonce deleteCategorie searchByNom searchByCodepostal modifyAnnonce newCategorie"/>
+      <parameter name="allowedMethods" value="modifyCategorie test newAnnonce searchById searchAll deleteAnnonce searchByNom modifyAnnonce newCategorie getGategorie searchByCategorie deleteCategorie searchByCodepostal"/>
 
   </service>
 </deployment>

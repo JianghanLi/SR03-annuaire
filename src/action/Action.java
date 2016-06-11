@@ -204,6 +204,11 @@ public class Action {
 		return search(sql);
 	}
 	
+	public String searchById(String id_annonce) {
+		String sql = "select * from annonce where id_annonce =" + id_annonce;
+		return search(sql);
+	}
+	
 	public String searchAll() {
 		String sql = "select * from annonce";
 		return search(sql);
