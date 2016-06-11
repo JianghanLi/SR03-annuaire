@@ -17,10 +17,13 @@ import tool.DBConnecter;
 
 public class Action {
 
-	public void newAnnonce(String categorie, String nom, String rue, String ville,
+	public String newAnnonce(String categorie, String nom, String rue, String ville,
 		String postal, String tele, String text) {
-
-		if(checkCategorie(categorie) && checkPostTel(postal, tele)) {
+		if(!checkCategorie(categorie)) {
+			return "Categorie does not existe";
+		} else if(!checkPostTel(postal, tele)) {
+			return "Postal code or tel does not correct";
+		} else {
 			DBConnecter db = new DBConnecter();
 			Connection con = db.getConnection();
 			String sql = "insert into annonce(categorie, nom, rue, ville, code_postale, telephone, text) "
@@ -39,15 +42,20 @@ public class Action {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			db.close();	
+			db.close();
+			return "Annonce created";
 		}
 	}
 
-	public void modifyAnnonce(String categorie, String nom, String rue, String ville,
+	public String modifyAnnonce(String categorie, String nom, String rue, String ville,
 		String postal, String tele, String text, int id_annonce){
-
-		if(checkCategorie(categorie) && checkAnnonce(id_annonce)
-				&& checkPostTel(postal, tele)) {
+		if(!checkCategorie(categorie)) {
+			return "Categorie does not existe";
+		} else if (!checkAnnonce(id_annonce)) {
+			return "Annonce ID does not existe";
+		} else if(!checkPostTel(postal, tele)) {
+			return "Postal code or tel not correct";
+		} else {
 			DBConnecter db = new DBConnecter();
 			Connection con = db.getConnection();
 			String sql = "update annonce set categorie=?, nom=?, rue=?, ville=?, code_postale=?, telephone=?, text=? "
@@ -68,11 +76,14 @@ public class Action {
 				e.printStackTrace();
 			}
 			db.close();	
+			return "Annonce modified";
 		}
 	}
 
-	public void deleteAnnonce(int id_annonce) {
-		if(checkAnnonce(id_annonce)) {
+	public String deleteAnnonce(int id_annonce) {
+		if(!checkAnnonce(id_annonce)) {
+			return "Annonce ID does not existe";
+		} else {
 			DBConnecter db = new DBConnecter();
 			Connection con = db.getConnection();
 			String sql = "delete from annonce where id_annonce = ?";
@@ -85,14 +96,17 @@ public class Action {
 				e.printStackTrace();
 			}
 			db.close();	
+			return "Annonce deleted";
 		}
 	}
 
-	public void newCategorie(String categorie) {
+	public String newCategorie(String categorie) {
 		DBConnecter db = new DBConnecter();
 		Connection con = db.getConnection();
 		try {
-			if(!checkCategorie(categorie)) {
+			if(checkCategorie(categorie)) {
+				return "Categorie already existe";
+			} else {
 				String sql = "insert into categorie(title) values(?)";
 				PreparedStatement prest = con.prepareStatement(sql);
 				prest.setString(1, categorie);
@@ -103,10 +117,15 @@ public class Action {
 			e.printStackTrace();
 		}
 		db.close();
+		return "Categorie created";
 	}
 
-	public void modifyCategorie(String categorie, String newCategorie) {
-		if(checkCategorie(categorie) && !checkCategorie(newCategorie)) {
+	public String modifyCategorie(String categorie, String newCategorie) {
+		if(!checkCategorie(categorie)) {
+			return "Categorie does not existe";
+		} else if(checkCategorie(newCategorie)) {
+			return "Categorie already existe";
+		} else {
 			DBConnecter db = new DBConnecter();
 			Connection con = db.getConnection();
 			try {
@@ -115,17 +134,28 @@ public class Action {
 				prest.setString(1, newCategorie);
 				prest.setString(2, categorie);
 				prest.executeUpdate();	
+				
+				sql = "update annonce set categorie=? where categorie=?";
+				prest = con.prepareStatement(sql);
+				prest.setString(1, newCategorie);
+				prest.setString(2, categorie);
+				prest.executeUpdate();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			db.close();	
+			return "Categorie modified";
 		}
 	}
 
 	// delete enable only if there is no annonce in this categorie
-	public void deleteCategorie(String categorie) {
-		if(checkCategorie(categorie) && !hasAnnonce(categorie)) {
+	public String deleteCategorie(String categorie) {
+		if(!checkCategorie(categorie)) {
+			return "Categorie does not existe";
+		} else if(hasAnnonce(categorie)) {
+			return "There are annoces in this categorie";
+		} else {
 			DBConnecter db = new DBConnecter();
 			Connection con = db.getConnection();
 			try {
@@ -137,7 +167,8 @@ public class Action {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			db.close();	
+			db.close();
+			return "Categorie deleted";
 		}
 	}
 
