@@ -24,6 +24,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <element name="deleteCategorieResponse">
     <complexType/>
    </element>
+   <element name="modifyCategorie">
+    <complexType>
+     <sequence>
+      <element name="categorie" type="xsd:string"/>
+      <element name="newCategorie" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="modifyCategorieResponse">
+    <complexType/>
+   </element>
    <element name="newCategorie">
     <complexType>
      <sequence>
@@ -80,9 +91,9 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
   </schema>
  </wsdl:types>
 
-   <wsdl:message name="deleteAnnonceRequest">
+   <wsdl:message name="modifyCategorieResponse">
 
-      <wsdl:part element="impl:deleteAnnonce" name="parameters">
+      <wsdl:part element="impl:modifyCategorieResponse" name="parameters">
 
       </wsdl:part>
 
@@ -91,6 +102,30 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <wsdl:message name="modifyAnnonceRequest">
 
       <wsdl:part element="impl:modifyAnnonce" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="modifyAnnonceResponse">
+
+      <wsdl:part element="impl:modifyAnnonceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="newAnnonceRequest">
+
+      <wsdl:part element="impl:newAnnonce" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteAnnonceRequest">
+
+      <wsdl:part element="impl:deleteAnnonce" name="parameters">
 
       </wsdl:part>
 
@@ -144,17 +179,9 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="modifyAnnonceResponse">
+   <wsdl:message name="modifyCategorieRequest">
 
-      <wsdl:part element="impl:modifyAnnonceResponse" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="newAnnonceRequest">
-
-      <wsdl:part element="impl:newAnnonce" name="parameters">
+      <wsdl:part element="impl:modifyCategorie" name="parameters">
 
       </wsdl:part>
 
@@ -197,6 +224,18 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
        </wsdl:input>
 
          <wsdl:output message="impl:deleteCategorieResponse" name="deleteCategorieResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="modifyCategorie">
+
+         <wsdl:input message="impl:modifyCategorieRequest" name="modifyCategorieRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:modifyCategorieResponse" name="modifyCategorieResponse">
 
        </wsdl:output>
 
@@ -285,6 +324,24 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="deleteCategorieResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="modifyCategorie">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="modifyCategorieRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="modifyCategorieResponse">
 
             <wsdlsoap:body use="literal"/>
 

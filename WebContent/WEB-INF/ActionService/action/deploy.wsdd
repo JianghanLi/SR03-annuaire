@@ -15,6 +15,10 @@
       <operation xmlns:operNS="http://action" name="deleteCategorie" qname="operNS:deleteCategorie" soapAction="">
         <parameter xmlns:pns="http://action" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:categorie" type="tns:string"/>
       </operation>
+      <operation xmlns:operNS="http://action" name="modifyCategorie" qname="operNS:modifyCategorie" soapAction="">
+        <parameter xmlns:pns="http://action" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:categorie" type="tns:string"/>
+        <parameter xmlns:pns="http://action" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:newCategorie" type="tns:string"/>
+      </operation>
       <operation xmlns:operNS="http://action" name="newCategorie" qname="operNS:newCategorie" soapAction="">
         <parameter xmlns:pns="http://action" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:categorie" type="tns:string"/>
       </operation>
@@ -40,7 +44,7 @@
         <parameter xmlns:pns="http://action" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:tele" type="tns:string"/>
         <parameter xmlns:pns="http://action" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:text" type="tns:string"/>
       </operation>
-      <parameter name="allowedMethods" value="test newAnnonce deleteCategorie deleteAnnonce modifyAnnonce newCategorie"/>
+      <parameter name="allowedMethods" value="modifyCategorie test newAnnonce deleteCategorie deleteAnnonce modifyAnnonce newCategorie"/>
 
   </service>
 </deployment>

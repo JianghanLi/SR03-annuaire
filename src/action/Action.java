@@ -143,7 +143,7 @@ public class Action {
 		Statement st = db.getStatement();
 		try {
 			ResultSet rs = st.executeQuery("select * from categorie inner join annonce "
-					+ "on title = categorie where categorie =" + categorie);			
+					+ "on title = categorie where categorie ='" + categorie + "'");			
 			if(rs.next()) {
 				return true;
 			}
