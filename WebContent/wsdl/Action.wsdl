@@ -14,70 +14,23 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="searchAll">
-    <complexType/>
-   </element>
-   <element name="searchAllResponse">
-    <complexType>
-     <sequence>
-      <element name="searchAllReturn" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="deleteCategorie">
+   <element name="newAnnonce">
     <complexType>
      <sequence>
       <element name="categorie" type="xsd:string"/>
+      <element name="nom" type="xsd:string"/>
+      <element name="rue" type="xsd:string"/>
+      <element name="ville" type="xsd:string"/>
+      <element name="postal" type="xsd:string"/>
+      <element name="tele" type="xsd:string"/>
+      <element name="text" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
-   <element name="deleteCategorieResponse">
+   <element name="newAnnonceResponse">
     <complexType>
      <sequence>
-      <element name="deleteCategorieReturn" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="modifyCategorie">
-    <complexType>
-     <sequence>
-      <element name="categorie" type="xsd:string"/>
-      <element name="newCategorie" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="modifyCategorieResponse">
-    <complexType>
-     <sequence>
-      <element name="modifyCategorieReturn" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="newCategorie">
-    <complexType>
-     <sequence>
-      <element name="categorie" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="newCategorieResponse">
-    <complexType>
-     <sequence>
-      <element name="newCategorieReturn" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="deleteAnnonce">
-    <complexType>
-     <sequence>
-      <element name="id_annonce" type="xsd:int"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="deleteAnnonceResponse">
-    <complexType>
-     <sequence>
-      <element name="deleteAnnonceReturn" type="xsd:string"/>
+      <element name="newAnnonceReturn" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
@@ -102,23 +55,70 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="newAnnonce">
+   <element name="deleteAnnonce">
     <complexType>
      <sequence>
-      <element name="categorie" type="xsd:string"/>
-      <element name="nom" type="xsd:string"/>
-      <element name="rue" type="xsd:string"/>
-      <element name="ville" type="xsd:string"/>
-      <element name="postal" type="xsd:string"/>
-      <element name="tele" type="xsd:string"/>
-      <element name="text" type="xsd:string"/>
+      <element name="id_annonce" type="xsd:int"/>
      </sequence>
     </complexType>
    </element>
-   <element name="newAnnonceResponse">
+   <element name="deleteAnnonceResponse">
     <complexType>
      <sequence>
-      <element name="newAnnonceReturn" type="xsd:string"/>
+      <element name="deleteAnnonceReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="newCategorie">
+    <complexType>
+     <sequence>
+      <element name="categorie" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="newCategorieResponse">
+    <complexType>
+     <sequence>
+      <element name="newCategorieReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="modifyCategorie">
+    <complexType>
+     <sequence>
+      <element name="categorie" type="xsd:string"/>
+      <element name="newCategorie" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="modifyCategorieResponse">
+    <complexType>
+     <sequence>
+      <element name="modifyCategorieReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteCategorie">
+    <complexType>
+     <sequence>
+      <element name="categorie" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteCategorieResponse">
+    <complexType>
+     <sequence>
+      <element name="deleteCategorieReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getGategorie">
+    <complexType/>
+   </element>
+   <element name="getGategorieResponse">
+    <complexType>
+     <sequence>
+      <element name="getGategorieReturn" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
@@ -136,6 +136,20 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
+   <element name="searchByCodepostal">
+    <complexType>
+     <sequence>
+      <element name="codePostal" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByCodepostalResponse">
+    <complexType>
+     <sequence>
+      <element name="searchByCodepostalReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
    <element name="searchByNom">
     <complexType>
      <sequence>
@@ -150,17 +164,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="searchByCodepostal">
-    <complexType>
-     <sequence>
-      <element name="codePostal" type="xsd:string"/>
-     </sequence>
-    </complexType>
+   <element name="searchAll">
+    <complexType/>
    </element>
-   <element name="searchByCodepostalResponse">
+   <element name="searchAllResponse">
     <complexType>
      <sequence>
-      <element name="searchByCodepostalReturn" type="xsd:string"/>
+      <element name="searchAllReturn" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
@@ -183,6 +193,14 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
+   <wsdl:message name="getGategorieResponse">
+
+      <wsdl:part element="impl:getGategorieResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
    <wsdl:message name="modifyAnnonceRequest">
 
       <wsdl:part element="impl:modifyAnnonce" name="parameters">
@@ -199,14 +217,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="modifyAnnonceResponse">
-
-      <wsdl:part element="impl:modifyAnnonceResponse" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
    <wsdl:message name="newAnnonceRequest">
 
       <wsdl:part element="impl:newAnnonce" name="parameters">
@@ -215,9 +225,25 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
+   <wsdl:message name="modifyAnnonceResponse">
+
+      <wsdl:part element="impl:modifyAnnonceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
    <wsdl:message name="searchAllResponse">
 
       <wsdl:part element="impl:searchAllResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getGategorieRequest">
+
+      <wsdl:part element="impl:getGategorie" name="parameters">
 
       </wsdl:part>
 
@@ -247,17 +273,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="searchAllRequest">
+   <wsdl:message name="searchByNomResponse">
 
-      <wsdl:part element="impl:searchAll" name="parameters">
+      <wsdl:part element="impl:searchByNomResponse" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="searchByNomResponse">
+   <wsdl:message name="searchAllRequest">
 
-      <wsdl:part element="impl:searchByNomResponse" name="parameters">
+      <wsdl:part element="impl:searchAll" name="parameters">
 
       </wsdl:part>
 
@@ -279,17 +305,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="newCategorieResponse">
+   <wsdl:message name="deleteAnnonceResponse">
 
-      <wsdl:part element="impl:newCategorieResponse" name="parameters">
+      <wsdl:part element="impl:deleteAnnonceResponse" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="deleteAnnonceResponse">
+   <wsdl:message name="newCategorieResponse">
 
-      <wsdl:part element="impl:deleteAnnonceResponse" name="parameters">
+      <wsdl:part element="impl:newCategorieResponse" name="parameters">
 
       </wsdl:part>
 
@@ -357,61 +383,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="searchAll">
+      <wsdl:operation name="newAnnonce">
 
-         <wsdl:input message="impl:searchAllRequest" name="searchAllRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:searchAllResponse" name="searchAllResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="deleteCategorie">
-
-         <wsdl:input message="impl:deleteCategorieRequest" name="deleteCategorieRequest">
+         <wsdl:input message="impl:newAnnonceRequest" name="newAnnonceRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:deleteCategorieResponse" name="deleteCategorieResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="modifyCategorie">
-
-         <wsdl:input message="impl:modifyCategorieRequest" name="modifyCategorieRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:modifyCategorieResponse" name="modifyCategorieResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="newCategorie">
-
-         <wsdl:input message="impl:newCategorieRequest" name="newCategorieRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:newCategorieResponse" name="newCategorieResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="deleteAnnonce">
-
-         <wsdl:input message="impl:deleteAnnonceRequest" name="deleteAnnonceRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:deleteAnnonceResponse" name="deleteAnnonceResponse">
+         <wsdl:output message="impl:newAnnonceResponse" name="newAnnonceResponse">
 
        </wsdl:output>
 
@@ -429,13 +407,61 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="newAnnonce">
+      <wsdl:operation name="deleteAnnonce">
 
-         <wsdl:input message="impl:newAnnonceRequest" name="newAnnonceRequest">
+         <wsdl:input message="impl:deleteAnnonceRequest" name="deleteAnnonceRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:newAnnonceResponse" name="newAnnonceResponse">
+         <wsdl:output message="impl:deleteAnnonceResponse" name="deleteAnnonceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="newCategorie">
+
+         <wsdl:input message="impl:newCategorieRequest" name="newCategorieRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:newCategorieResponse" name="newCategorieResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="modifyCategorie">
+
+         <wsdl:input message="impl:modifyCategorieRequest" name="modifyCategorieRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:modifyCategorieResponse" name="modifyCategorieResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteCategorie">
+
+         <wsdl:input message="impl:deleteCategorieRequest" name="deleteCategorieRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteCategorieResponse" name="deleteCategorieResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getGategorie">
+
+         <wsdl:input message="impl:getGategorieRequest" name="getGategorieRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getGategorieResponse" name="getGategorieResponse">
 
        </wsdl:output>
 
@@ -453,6 +479,18 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
+      <wsdl:operation name="searchByCodepostal">
+
+         <wsdl:input message="impl:searchByCodepostalRequest" name="searchByCodepostalRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:searchByCodepostalResponse" name="searchByCodepostalResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
       <wsdl:operation name="searchByNom">
 
          <wsdl:input message="impl:searchByNomRequest" name="searchByNomRequest">
@@ -465,13 +503,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="searchByCodepostal">
+      <wsdl:operation name="searchAll">
 
-         <wsdl:input message="impl:searchByCodepostalRequest" name="searchByCodepostalRequest">
+         <wsdl:input message="impl:searchAllRequest" name="searchAllRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:searchByCodepostalResponse" name="searchByCodepostalResponse">
+         <wsdl:output message="impl:searchAllResponse" name="searchAllResponse">
 
        </wsdl:output>
 
@@ -501,89 +539,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="searchAll">
+      <wsdl:operation name="newAnnonce">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="searchAllRequest">
+         <wsdl:input name="newAnnonceRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="searchAllResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="deleteCategorie">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="deleteCategorieRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="deleteCategorieResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="modifyCategorie">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="modifyCategorieRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="modifyCategorieResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="newCategorie">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="newCategorieRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="newCategorieResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="deleteAnnonce">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="deleteAnnonceRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="deleteAnnonceResponse">
+         <wsdl:output name="newAnnonceResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -609,17 +575,89 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="newAnnonce">
+      <wsdl:operation name="deleteAnnonce">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="newAnnonceRequest">
+         <wsdl:input name="deleteAnnonceRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="newAnnonceResponse">
+         <wsdl:output name="deleteAnnonceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="newCategorie">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="newCategorieRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="newCategorieResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="modifyCategorie">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="modifyCategorieRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="modifyCategorieResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteCategorie">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteCategorieRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteCategorieResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getGategorie">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getGategorieRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getGategorieResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -645,6 +683,24 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
+      <wsdl:operation name="searchByCodepostal">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchByCodepostalRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchByCodepostalResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
       <wsdl:operation name="searchByNom">
 
          <wsdlsoap:operation soapAction=""/>
@@ -663,17 +719,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="searchByCodepostal">
+      <wsdl:operation name="searchAll">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="searchByCodepostalRequest">
+         <wsdl:input name="searchAllRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="searchByCodepostalResponse">
+         <wsdl:output name="searchAllResponse">
 
             <wsdlsoap:body use="literal"/>
 

@@ -171,6 +171,24 @@ public class Action {
 		}
 	}
 
+	public String getGategorie() {
+		DBConnecter db = new DBConnecter();
+		Statement st = db.getStatement();
+		List categorieList = new ArrayList();
+		try {
+			String sql = "select * from categorie";
+			ResultSet rs = st.executeQuery(sql);
+			while(rs.next()) {
+				categorieList.add(rs.getString("title"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		db.close();
+		return String.join(";", categorieList);
+	}
+	
 	public String searchByCategorie(String categorie) {
 		String sql = "select * from annonce where categorie = '" + categorie +"'";
 		return search(sql);
