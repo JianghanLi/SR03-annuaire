@@ -12,7 +12,6 @@ import java.util.Map;
 
 import com.alibaba.fastjson.JSONObject;
 
-import model.Annonce;
 import tool.DBConnecter;
 
 public class Action {
@@ -184,6 +183,11 @@ public class Action {
 	
 	public String searchByNom(String nom) {
 		String sql = "select * from annonce where nom like '%" + nom.toUpperCase() +"%'";
+		return search(sql);
+	}
+	
+	public String searchAll() {
+		String sql = "select * from annonce";
 		return search(sql);
 	}
 	
